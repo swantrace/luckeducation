@@ -34,4 +34,11 @@ function haru_child_theme_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'haru_child_theme_enqueue_scripts', 12 );
 
+function therewego_child_theme_enqueue_scripts() {
+    wp_enqueue_script(
+        'therewego-custom-script',
+        get_stylesheet_directory_uri() . '/assets/js/therewego-custom-script.js'
+    );
+}
+add_action( 'wp_enqueue_scripts', 'therewego_child_theme_enqueue_scripts', 13 );
 ?>

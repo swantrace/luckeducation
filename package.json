@@ -1,0 +1,14 @@
+{
+  "name": "luck-education-custom-js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel watch src/therewego-custom-script.js -d assets/js",
+    "build": "parcel build src/therewego-custom-script.js -d assets/js"
+  },
+  "dependencies": {
+    "haunted": "^4.7.1",
+    "lodash.inrange": "^3.3.6",
+    "lodash.maxby": "^4.6.0"
+  }
+}
