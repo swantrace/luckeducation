@@ -1,5 +1,37 @@
 import inRange from "lodash.inrange";
 
+export const AGE_LEVELS = [
+  "17岁及以下",
+  "18",
+  "19",
+  "20",
+  "21",
+  "22",
+  "23",
+  "24",
+  "25",
+  "26",
+  "27",
+  "28",
+  "29",
+  "30",
+  "31",
+  "32",
+  "33",
+  "34",
+  "35",
+  "36",
+  "37",
+  "38",
+  "39",
+  "40",
+  "41",
+  "42",
+  "43",
+  "44",
+  "45岁及以上",
+];
+
 export const SINGLE_AGE_SCORE = [
   [18, 99],
   [19, 105],
@@ -67,7 +99,7 @@ export const EDU_LEVELS = [
   "2年大专",
   "3年以上大专或本科",
   "双专业（3年以上+1年以上）",
-  "硕士学位或专业学位（如医学博士）",
+  "硕士学位或专业学位（如医学）",
   "博士学位",
 ];
 
@@ -253,13 +285,19 @@ export const OVERSEASEXP_TRANSFER_SCORE = [
   [4, 50],
 ];
 
+export const CERTIFICATE_TRANSFER_SCORE = [
+  [0, 0],
+  [1, 25],
+  [2, 50],
+];
+
 export const FRENCH_ADDITIONAL_SCORE = [
   [0, 0],
   [1, 25],
   [2, 50],
 ];
 
-export const LAN_TEST_TYPES = ["雅思培训类", "思陪（CELPIP）", "TEF", "TCF"];
+export const LAN_TEST_TYPES = ["雅思培训类", "思培（CELPIP）", "TEF", "TCF"];
 
 export const ENGLISH_TEST_TYPES = [LAN_TEST_TYPES[0], LAN_TEST_TYPES[1]];
 

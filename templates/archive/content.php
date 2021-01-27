@@ -25,6 +25,10 @@ if ( empty($archive_display_type) ) {
 }
 
 $post_classes[] = $archive_display_type;
+// qixuan
+$is_restricted = UM()->classes['access']->is_restricted(get_the_ID());
+$post_classes[]=  $is_restricted == true?'restricted-post':'nonrestricted-post';
+
 if ( in_array($archive_display_type, array('grid','masonry')) ) {
     if ( $archive_display_columns == '2' ) {
         $post_classes[] = 'col-md-6 col-sm-6 col-xs-12';
@@ -75,10 +79,18 @@ else {
                             }
                         ?>
                     </div>
+                    <?php if($is_restricted == true): ?>
                     <div class="post-read-more">
-                        <a href="<?php the_permalink(); ?>" class="read-more" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php echo esc_html__( '阅读全文', 'graneon' ); ?><i class="zmdi zmdi-chevron-right"></i></a>
+                        <button type="button" class="btn btn-secondary btn-lg" disabled>仅供付费会员</button>
                     </div>
-                    
+                    <?php else: ?>
+                    <div class="post-read-more">
+                        <a href="<?php the_permalink(); ?>" class="read-more" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                            <?php echo esc_html__( '阅读全文', 'graneon' ); ?>
+                            <i class="zmdi zmdi-chevron-right"></i>
+                        </a>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

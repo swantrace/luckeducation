@@ -1,3 +1,4 @@
+import { virtual, html } from "haunted";
 import inRange from "lodash.inrange";
 import maxBy from "lodash.maxby";
 import {
@@ -20,6 +21,7 @@ import {
   SPOUSE_EXP_SCORE,
   EDU_TRANSFER_SCORE,
   OVERSEASEXP_TRANSFER_SCORE,
+  CERTIFICATE_TRANSFER_SCORE,
   SIBLING_SCORE,
   PROVINCIAL_NOMINEE_SCORE,
   LAN_TEST_TYPES,
@@ -278,6 +280,29 @@ export const transferOverseasExpMultiplyLanToScore = (
   return score;
 };
 
+export const transferCertificateMultiplyLanToScore = (
+  hasCertificate,
+  lanTestInfo
+) => {
+  const clbs = Object.keys(lanTestInfo).map(
+    (testSubject) => lanTestInfo[testSubject].clb
+  );
+  const lanFactor = lanToLanFactor(clbs, 5, 7);
+  const certificateFactor = hasCertificate ? 1 : 0;
+  const multipliedFactor = lanFactor * certificateFactor;
+  let score = 0;
+  if (
+    CERTIFICATE_TRANSFER_SCORE.find(
+      (factorScorePair) => factorScorePair[0] === multipliedFactor
+    )
+  ) {
+    score = CERTIFICATE_TRANSFER_SCORE.find(
+      (factorScorePair) => factorScorePair[0] === multipliedFactor
+    )[1];
+  }
+  return score;
+};
+
 export const transferOverseasExpMultiplyExpToScore = (overseasExp, exp) => {
   const expFactor = expToExpFactor(exp);
   const overseasExpFactor = overseasExpToOverseasExpFactor(overseasExp);
@@ -466,6 +491,7 @@ export const getFinalScore = (
   rawSpouseExpScore = 0,
   rawTransferEduScore = 0,
   rawTransferOverseasExpScore = 0,
+  rawTransferCertificateScore = 0,
   rawAdditionalScore = 0
 ) => {
   const ageScore = Number(rawAgeScore);
@@ -478,6 +504,7 @@ export const getFinalScore = (
   const spouseExpScore = Number(rawSpouseExpScore);
   const transferEduScore = Number(rawTransferEduScore);
   const transferOverseasExpScore = Number(rawTransferOverseasExpScore);
+  const transferCertificateScore = Number(rawTransferCertificateScore);
   const additionalScore = Number(rawAdditionalScore);
 
   if (
@@ -491,10 +518,15 @@ export const getFinalScore = (
     Number.isNaN(spouseExpScore) ||
     Number.isNaN(transferEduScore) ||
     Number.isNaN(transferOverseasExpScore) ||
+    Number.isNaN(transferCertificateScore) ||
     Number.isNaN(additionalScore)
   ) {
     return 0;
   }
+  const transferScore = Math.min(
+    100,
+    transferEduScore + transferOverseasExpScore + transferCertificateScore
+  );
   return (
     ageScore +
     eduScore +
@@ -504,10 +536,18 @@ export const getFinalScore = (
     spouseEduScore +
     spouseExpScore +
     spouseLanScore +
-    transferEduScore +
-    transferOverseasExpScore +
+    transferScore +
     additionalScore
   );
+};
+
+export const displayMaxAndRealScores = (maxScore, realScore) => {
+  const MaxAndRealScores = virtual(({ maxScore, realScore }) => {
+    return html`<strong style="white-space: nowrap;"
+      >${realScore}/${maxScore}</strong
+    >`;
+  });
+  return MaxAndRealScores({ maxScore, realScore });
 };
 
 function allClbsAbove(clbs = [0, 0, 0, 0], rawLevel) {
@@ -529,12 +569,12 @@ function allClbsAbove(clbs = [0, 0, 0, 0], rawLevel) {
   return flag;
 }
 
-function lanToLanFactor(clbs = [0, 0, 0, 0]) {
+function lanToLanFactor(clbs = [0, 0, 0, 0], firstLevel = 7, secondLevel = 9) {
   let lanFactor = 0;
-  if (allClbsAbove(clbs, 7)) {
+  if (allClbsAbove(clbs, firstLevel)) {
     lanFactor = 1;
   }
-  if (allClbsAbove(clbs, 9)) {
+  if (allClbsAbove(clbs, secondLevel)) {
     lanFactor = 2;
   }
   return lanFactor;

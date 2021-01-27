@@ -41,4 +41,18 @@ function therewego_child_theme_enqueue_scripts() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'therewego_child_theme_enqueue_scripts', 13 );
+
+// 配置邮件
+add_action('phpmailer_init', 'mail_smtp');
+function mail_smtp( $phpmailer ) {
+	$phpmailer->FromName = '知更鸟'; // 发件人昵称
+	$phpmailer->Host = 'smtp.126.com'; // 邮箱SMTP服务器
+	$phpmailer->Port = 465; // SMTP端口，不需要改
+	$phpmailer->Username = 'frederickhong@126.com'; // 邮箱账户
+	$phpmailer->Password = 'XVIHQVDWRSRGHYVL'; // 此处填写邮箱生成的授权码，不是邮箱登录密码
+	$phpmailer->From = 'frederickhong@126.com'; // 邮箱账户同上
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->SMTPSecure = 'ssl'; // 端口25时 留空，465时 ssl，不需要改
+	$phpmailer->IsSMTP();
+}
 ?>
