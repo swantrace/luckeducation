@@ -391,7 +391,7 @@ function CRSForm() {
             <td>学历</td>
             <td class="left">
               <div class="form-group">
-                <label>生平最高学历</label>
+                <label>现有最高学历</label>
                 ${EDU_LEVELS.map(
                   (eduLevelName) =>
                     html`<div class="radio">

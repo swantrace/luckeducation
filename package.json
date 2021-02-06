@@ -10,5 +10,8 @@
     "haunted": "^4.7.1",
     "lodash.inrange": "^3.3.6",
     "lodash.maxby": "^4.6.0"
-  }
+  },
+  "browserslist": [
+    "since 2017-06"
+  ]
 }

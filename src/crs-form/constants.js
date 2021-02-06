@@ -297,7 +297,12 @@ export const FRENCH_ADDITIONAL_SCORE = [
   [2, 50],
 ];
 
-export const LAN_TEST_TYPES = ["雅思培训类", "思培（CELPIP）", "TEF", "TCF"];
+export const LAN_TEST_TYPES = [
+  "雅思培训类（IELTS G类）",
+  "思培（CELPIP）",
+  "TEF",
+  "TCF",
+];
 
 export const ENGLISH_TEST_TYPES = [LAN_TEST_TYPES[0], LAN_TEST_TYPES[1]];
 

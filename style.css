@@ -14,11 +14,30 @@ Version: 1.0.0
 ------------------------------------*/
 
 .restricted-post {
-  /* width: 100%;
-  height: 100%;
-  background: #fff;
-  filter: blur(5px); */
   pointer-events: none;
   touch-action: none;
   -webkit-touch-callout: none;
+}
+
+.restricted-post .post-excerpt {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  filter: blur(5px);
+}
+
+.blog .post-meta-info, .archive .post-meta-info{
+	display:none;
+}
+
+.header-mobile-sticky .haru-mobile-header-wrap{
+	background-color:#fff;	
+}
+
+.haru-page .pricing-plan-shortcode-wrap.style_1 .plan-item-wrap .plan-item .plan-title {
+    font-size: 17px;
+}
+
+.haru-page .pricing-plan-shortcode-wrap.style_1 .plan-item-wrap .plan-item .plan-content .plan-price .price {
+    font-size: 38px;
 }
