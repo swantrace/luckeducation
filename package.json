@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "haunted": "^4.7.1",
+    "ismobilejs": "^1.1.1",
     "lodash.inrange": "^3.3.6",
     "lodash.maxby": "^4.6.0"
   },

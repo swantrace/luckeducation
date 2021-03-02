@@ -75,7 +75,8 @@ else {
                             if ( has_excerpt() ) {
                                 echo wp_trim_words( get_the_excerpt(), $post_excerpt, '...' );
                             } else {
-                                echo wp_trim_words( get_the_content(), $post_excerpt, '...' ); 
+                                $my_content = apply_filters( 'the_content', get_the_content() );
+                                echo wp_trim_words( $my_content, $post_excerpt, '...' ); 
                             }
                         ?>
                     </div>

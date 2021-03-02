@@ -1,17 +1,20 @@
 {
   "folders": [
-	{
-		"path": "."
-	},
-	{
-		"path": "../graneon"
-	},
-	{
-		"path": "../../plugins/haru-graneon-core"
-	},
-	{
-		"path": "../../plugins/ultimate-member"
-	}
-],
+		{
+			"path": "."
+		},
+		{
+			"path": "../graneon"
+		},
+		{
+			"path": "../../plugins/haru-graneon-core"
+		},
+		{
+			"path": "../../plugins/ultimate-member"
+		},
+		{
+			"path": "../../../.."
+		}
+	],
   "settings": {}
 }

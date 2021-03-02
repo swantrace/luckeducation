@@ -939,7 +939,7 @@ function CRSForm() {
                     ?checked=${hasProvincialNominee}
                     @change=${onHasProvincialNomineeChanged}
                   />
-                  我有省提名
+                  我有支持EE加分的省提名
                 </label>
               </div>
             </td>
