@@ -211,7 +211,25 @@ div.um-header > div.um-profile-meta > div.um-meta > span:nth-child(3):before {
     display: none;
   } */
 
-  .blog .post-thumbnail .post-thumbnail-overlay .img-responsive {
+  .blog
+    .post-thumbnail
+    .post-thumbnail-overlay
+    .img-responsive，
+    .archive
+    .post-thumbnail
+    .post-thumbnail-overlay
+    .img-responsive，
+    .category
+    .post-thumbnail
+    .post-thumbnail-overlay
+    .img-responsive,
+  .archive-content
+    .archive-content-layout
+    .post-wrapper
+    .post-thumbnail-wrapper
+    .post-thumbnail
+    .post-thumbnail-overlay
+    .img-responsive {
     width: 40% !important;
   }
 }
@@ -268,4 +286,119 @@ div.um-header > div.um-profile-meta > div.um-meta > span:nth-child(3):before {
 
 .single-post .post-wrapper .post-thumbnail-wrapper {
   display: none;
+}
+
+.single-post .social-share {
+  display: none;
+}
+
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.services-shortcode-wrap {
+  /* 	pointer-events: none; */
+}
+.services-shortcode-wrap.style_1 .service-item:hover {
+  box-shadow: none !important;
+  /* 	border:none !important; */
+  border-right: 1px solid #e5e5e5;
+  transform: none !important;
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+}
+
+.services-shortcode-wrap.style_1 .service-item.no-border:hover {
+  /* 	border-bottom: 1px solid #e5e5e5; */
+}
+
+.services-shortcode-wrap.style_1 .service-item:hover .icon-wrap {
+  color: #333333 !important;
+}
+
+.back-to-top {
+  left: 30px !important;
+  right: unset !important;
+}
+
+#bbp_search_submit .button {
+  color: #fff;
+  border-color: #fe6c61;
+  background-color: #fe6c61;
+  border-radius: 4px;
+}
+
+.forum-titles .bbp-forum-info,
+.forum-titles .bbp-forum-info,
+.forum-titles .bbp-forum-topic-count,
+.forum-titles .bbp-forum-reply-count,
+.forum-titles .bbp-forum-freshness {
+  font-size: 15px;
+}
+
+.bbp-forum-info .bbp-forum-title,
+.bbp-forum-topic-count,
+.bbp-forum-reply-count,
+.bbp-forum-freshness {
+  font-size: 15px;
+}
+
+div.bbp-breadcrumb,
+div.bbp-topic-tags {
+  font-size: 14px !important;
+}
+
+#bbpress-forums a,
+#bbpress-forums a:hover {
+  font-size: 14px !important;
+}
+
+.quiz_section label,
+.quiz_section .mlw_qmn_question {
+  font-weight: normal !important;
+}
+
+.post-content .qmn_btn,
+.post-content .qmn_quiz_container .btn {
+  box-shadow: none !important;
+  background: #fe2854 !important;
+  border: none;
+  color: #fff !important;
+  font-weight: 600;
+  padding: 10px 30px !important;
+  margin-top: 20px !important;
+}
+
+.quiz_section:not(:first-child) {
+  border-bottom: 0.2px solid #eee;
+}
+
+.qmn_question_answer {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-bottom: 0.2px solid #eee;
+}
+
+.qmn_question_answer.qmn_question_answer_correct {
+  display: none;
+}
+
+.mlw_qmn_timer {
+  right: 50% !important;
 }

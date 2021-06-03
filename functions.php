@@ -74,4 +74,16 @@ if ( in_array( 'editor', (array) $user->roles ) ) {
     }
 }
 
+function bbp_enable_visual_editor( $args = array() ) {
+    $args['tinymce'] = true;
+    return $args;
+}
+add_filter( 'bbp_after_get_the_content_parse_args', 'bbp_enable_visual_editor' );
+
+add_filter( 'bbp_get_forum_archive_title', 'custom_forum_title');
+
+function custom_forum_title () {
+	Return 'Luck论坛' ;
+}
+
 ?>

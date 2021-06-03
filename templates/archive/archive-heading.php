@@ -59,8 +59,12 @@ if (!have_posts()) {
 } elseif (is_tax('post_format', 'post-format-chat')) {
     $page_title = esc_html__( 'Chats', 'graneon' );
 // Custom Post type
+} elseif (is_post_type_archive( 'forum' ) ) {
+    $page_title = esc_html__( 'Luck论坛', 'graneon');
 } elseif (is_archive('haru_salon')) {
     $page_title = esc_html__( 'Salon', 'graneon' );
+} elseif (is_post_type_archive( 'forum' ) ) {
+    $page_title = esc_html__( 'Luck论坛', 'graneon');
 } else {
     $page_title = esc_html__( 'Archives', 'graneon' );
 }
