@@ -86,4 +86,19 @@ function custom_forum_title () {
 	Return 'Luck论坛' ;
 }
 
+add_filter( 'register_post_type_args', 'change_qsm_quiz_post_type_args', 99, 2 );
+function change_qsm_quiz_post_type_args( $args, $post_name )
+{
+    if ( $post_name != 'qsm_quiz' )
+        return $args;
+
+    // die($post_name);
+    $args['show_in_menu'] = true;
+    // 
+    // other arguments
+
+    // die(print_r($args, false));
+    return $args;
+}
+
 ?>

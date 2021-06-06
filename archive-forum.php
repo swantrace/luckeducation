@@ -78,7 +78,7 @@ if ( empty($archive_paging_style) ) {
         <div class="<?php echo esc_attr($archive_layout) ?> ">
     <?php endif; ?>
         <?php if( ($archive_content_col != 12) || ($archive_layout != 'full') ) : ?>
-            <div class="row">
+            <!-- <div class="row"> -->
         <?php endif; ?>         
           <!-- Archive content -->
           <?php do_action( 'bbp_before_main_content' ); ?>
@@ -108,7 +108,7 @@ if ( empty($archive_paging_style) ) {
                 </div>
             <?php endif; ?> -->
         <?php if ( ($archive_content_col != 12) || ($archive_layout != 'full') ) : ?>
-            </div>
+            <!-- </div> -->
         <?php endif; ?>
     <?php if ( $archive_layout != 'full' ) : ?>
         </div>
