@@ -101,4 +101,16 @@ function change_qsm_quiz_post_type_args( $args, $post_name )
     return $args;
 }
 
+add_filter('bbp_get_user_display_role', function($role, $user_id) {
+    um_fetch_user($user_id);
+    // $role = um_user("role_select");
+    if(trim(um_user("role_select")) !== ''){
+      $role = $role . " / " . um_user("role_select");
+    }
+    if(um_user("lucky_credits") > 0){
+        $role = $role . "<br />幸运值：" . um_user("lucky_credits");
+    }
+    return $role;
+}, 999, 2);
+um_reset_user();
 ?>
